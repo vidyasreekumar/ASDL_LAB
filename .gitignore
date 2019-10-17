@@ -1,5 +1,5 @@
 venv/
-static/
+
 migrations/
 .idea/
 # Byte-compiled / optimized / DLL files

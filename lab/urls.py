@@ -23,7 +23,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('logreg/', include('logreg.urls')),
-    path('newreval/', include('newreval.urls')),
+    path('', include('newreval.urls')),
    # path('results/', include('results.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
