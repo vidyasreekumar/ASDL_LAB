@@ -1,9 +1,8 @@
-'''from django.urls import path
+from django.urls import path
 from . import views
 
-urlspatterns = [
-    path('', views.login, name = 'login'),
-    path('', views.register, name = 'register'),
-    path('', views.dashboard, name = 'dashboard'),
+urlpatterns = [
+    path('newreval', views.new_reval, name = 'newreval'),
 
-]'''
+
+]
