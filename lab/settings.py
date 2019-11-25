@@ -150,5 +150,5 @@ STATICFILES_DIRS = [
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
-LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_REDIRECT_URL = 'newrevalhead'
 CRISPY_TEMPLATE_PACK = 'uni_form'

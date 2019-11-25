@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from datetime import datetime
+from django.conf import settings
 from django.contrib.auth.models import User
 
 class Class(models.Model):
@@ -17,7 +18,7 @@ class Class(models.Model):
 
 
 class UserDetails(models.Model):
-    ktu_id = models.OneToOneField(User,primary_key= True , on_delete=models.CASCADE)
+    ktu_id = models.OneToOneField(settings.AUTH_USER_MODEL,primary_key= True , on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
     class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
     #approved_date = models.DateField(default=datetime.now)
