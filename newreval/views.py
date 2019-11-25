@@ -19,11 +19,12 @@ def new_reval_head(request):
 
 
 def new_reval(request):
+
+
     queryset_class = Class.objects.all()
     queryset_sem = Sem.objects.all()
     queryset_subjects = Subjects.objects.all()
     flag = 1
-
 
     if 'CLASS' in request.GET:
         cname = request.GET['CLASS']
@@ -38,7 +39,7 @@ def new_reval(request):
         sem = request.GET['SEM']
         if sem:
             flag = 0
-            queryset_subjects = queryset_sem.filter(sem_id__exact=sem)
+            queryset_subjects = queryset_subjects.filter(sem_id__exact=sem)
     else:
         pass
     context = {
@@ -47,8 +48,9 @@ def new_reval(request):
     }
 
     if flag == 1:
-        messages.success(request, f'Enter a value')
+        messages.success(request, 'Enter a value')
         return render(request, 'newreval/newrevalhead.html', {})
 
     else:
         return render(request, 'newreval/newreval.html', context)
+

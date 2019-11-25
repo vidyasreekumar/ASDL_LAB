@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-md-12">
-                <h1 class="display-4">PR DETAILS</h1>
+                <h1 class="display-4">REVALUATION</h1>
             </div>
         </div>
     </div>
@@ -32,12 +32,8 @@
 
 <!-- Listing -->
 <section id="listing" class="py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="row mb-5 fields">
-                    <div class="col-md-6">
-                        <ul class="list-group list-group-flush">
+    <form action="/action_page.php" method="get">
+        <ul class="list-group list-group-flush">
 
                             <style>
                         table
@@ -47,24 +43,17 @@
                         table-layout: auto;}
                             </style>
 
-
+<p>
                             {% for subject in subjects %}
-                            <li class="list-group-item text-secondary">
-                                PR NO:
-                                {{subject.sub_name}}
-                            </li>
-                            {% endfor %}
+  <input type="checkbox" name="vehicle" value="{{subject.sub_name}}">  {{subject.sub_name}}
+            {% endfor %}
+</p>
 
 
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-                <a href="{% url 'newrevalhead' %}" class="btn btn-light mb-4">Back</a>
+    <input type="submit" value="Submit">
 
-    </div>
-
+</form>
 
 </section>
 {% endblock %}
