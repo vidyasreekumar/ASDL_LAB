@@ -54,3 +54,6 @@ def new_reval(request):
     else:
         return render(request, 'newreval/newreval.html', context)
 
+
+def new_reval_head(request):
+    return render(request, 'newreval/newrevalhead.html', )
