@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'logreg.apps.LogregConfig',
     'newreval.apps.NewrevalConfig',
     'results.apps.ResultsConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,17 @@ MESSAGE_TAGS = {
 }
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+LOGIN_URL = 'logreg/login'
+#CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'lab/static')
+]
+
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+LOGIN_REDIRECT_URL = 'dashboard'
+CRISPY_TEMPLATE_PACK = 'uni_form'

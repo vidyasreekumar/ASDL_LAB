@@ -13,3 +13,4 @@ sqlparse==0.3.0
 typed-ast==1.4.0
 wrapt==1.11.2
 # pip install djangorestframework django-cors-headers
+#  git clone https://github.com/twbs/bootstrap.git

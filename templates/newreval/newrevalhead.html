@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Showcase -->
+<section id="showcase">
+    <div class="container text-center">
+        <div class="home-search p-5">
+            <div class="overlay p-5">
+                <h1 class="display-4 mb-4">
+                    ERP SEARCH ENGINE
+                </h1>
+
+
+                <div class="search">
+                    <form action="{% url 'newreval' %}">
+                        <!-- Form Row 1 -->
+                        <div class="form-row">
+
+                            <div class="col-md-4 mb-3">
+                                <select style="position:absolute;top:0px;left:5px; width:330px; " class="form-control"
+                                        onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text;
+                                         document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
+                                    <option></option>
+                                    {% for clas in class %}
+                                    <option value="{{clas.class_name}}">{{clas.class_name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="text" name="CLASS" id="displayValue"
+                                       placeholder="CLASS" onfocus="this.select()"
+                                       style="position:absolute;top:0px;left:5px; width:320px;" class="form-control">
+                                <input name="idValue" id="idValue" type="hidden">
+                            </div>
+
+
+                            <div class="col-md-4 mb-3">
+
+                                <input type="text" name="DATE" id="displayValue4"
+                                       placeholder="DATE(YYYY-MM-DD)" onfocus="this.select()"
+                                       style="position:absolute;top:0px;left:5px; width:320px;" class="form-control">
+                                <input name="idValue" id="idValue4" type="hidden">
+                            </div>
+
+
+                            <div class="col-md-4 mb-3">
+                                <select style="position:absolute;top:0px;left:5px; width:310px; " class="form-control"
+                                        onchange="document.getElementById('displayValue1').value=this.options[this.selectedIndex].text;
+                                         document.getElementById('idValue1').value=this.options[this.selectedIndex].value;">
+                                    <option></option>
+                                    {% for sem in sems %}
+                                    <option value="{{sem.sem_name}}">{{sem.sem_name}}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="text" name="SEM" id="displayValue1"
+                                       placeholder="SEM" onfocus="this.select()"
+                                       style="position:absolute;top:0px;left:5px; width:300px;" class="form-control">
+                                <input name="idValue" id="idValue1" type="hidden">
+                            </div>
+
+
+
+
+                        </div>
+                        <!-- Form Row 2 -->
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label class="sr-only">BUTTON</label>
+                                <button class="btn btn-secondary btn-block mt-4" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

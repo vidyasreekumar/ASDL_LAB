@@ -1,7 +1,7 @@
 {% load static %}
 
 
-
+<html>
 <html lang="en">
 
 <head>
@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/all.css' %}">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <!-- Custom -->
@@ -20,33 +20,33 @@
 
 <body>
 <!-- Top Bar -->
-<section id="top-bar" class="p-3"  style="background-color:2A1B3D; color:white;">
-    <div class="container " >
+<section id="top-bar" class="p-3">
+    <div class="container ">
         <div class="row">
             <div class="col-md-4">
                 <i class="fas fa-phone"></i> 123-456-789
             </div>
             <div class="col-md-4">
-                <a href="https://www.godfreyphillips.com/"  style="color:white;">
-                    <i class="fa fa-globe" aria-hidden="true"  style="color:white;"></i> something.com
+                <a href="https://www.godfreyphillips.com/">
+                    <i class="fa fa-globe" aria-hidden="true"></i> godfreyphillips.com
                 </a>
             </div>
             <div class="col-md-4">
                 <div class="social text-right">
                     <a href="#">
-                        <i class="fab fa-twitter"  style="color:white;" ></i>
+                        <i class="fab fa-twitter"></i>
                     </a>
                     <a href="#">
-                        <i class="fab fa-facebook"  style="color:white;"></i>
+                        <i class="fab fa-facebook"></i>
                     </a>
                     <a href="#">
-                        <i class="fab fa-linkedin"  style="color:white;"></i>
+                        <i class="fab fa-linkedin"></i>
                     </a>
                     <a href="#">
-                        <i class="fab fa-instagram"  style="color:white;"></i>
+                        <i class="fab fa-instagram"></i>
                     </a>
                     <a href="#">
-                        <i class="fab fa-pinterest"  style="color:white;"></i>
+                        <i class="fab fa-pinterest"></i>
                     </a>
                 </div>
             </div>
@@ -55,39 +55,40 @@
 </section>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark  sticky-top " style="background-color:44318D;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="{% static 'img' %}" class="logo" alt="logo">
+            <img src="{% static 'img/logo_1.png' %}" class="logo" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
             <ul class="navbar-nav ml-auto">
                 {% csrf_token %}
                 {% if user.is_authenticated %}
                 <li class="nav-item mr-3">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-address-card"></i> Dashboard</a>
+                    <a class="nav-link" href="{% url 'newrevalhead' %}">
+                        <i class="fa fa-address-card"></i> Revaluation</a>
                 </li>
                 <li class="nav-item mr-3">
                     <a class="nav-link" href="#">
                         <i class="fa fa-bars"></i> Home </a>
                 </li>
                 <li class="nav-item mr-3">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{% url 'logout' %}">
                         <i class="fas fa-sign-in-alt"></i> Logout</a>
                 </li>
 
 
                 {% else %}
                 <li class="nav-item mr-3">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{% url 'register' %}">
                         <i class="fas fa-user-plus"></i> Register</a>
                 </li>
-                <li class="nav-item mr-3">#">
+                <li class="nav-item mr-3">
+                    <a class="nav-link" href="{% url 'login' %}">
                         <i class="fas fa-sign-in-alt"></i> Login</a>
                 </li>
                 {% endif %}
@@ -105,8 +106,8 @@
 {% block content %}
 {% endblock %}
 <!-- Footer -->
-<footer id="main-footer" class="py-4  text-center" style="background-color:2A1B3D; color:white;">
-    © 2019.
+<footer id="main-footer" class="py-4 bg-primary text-white text-center">
+    © 2019. Godfrey Phillips India Ltd.
     <span class="year"></span>
 
 
