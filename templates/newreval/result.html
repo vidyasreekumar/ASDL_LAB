@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">REVALUATION</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- Listing -->
+<section id="listing" class="py-4">
+    <form action="/action_page.php" method="get">
+        <ul class="list-group list-group-flush">
+
+       <h2>REGISTERED SUBJECTS : </h2>
+         {% for subject in subjects %}
+            {{subject}}<br/>
+         {% endfor %}
+        </ul>
+    </form>
+
+</section>
+
+<h2>PAY ONLINE</h2>
+<p><a href="https://www.w3schools.com/html/">HERE</a></p>
+{% endblock %}
+
+

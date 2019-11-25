@@ -26,22 +26,34 @@ def new_reval(request):
     queryset_subjects = Subjects.objects.all()
     flag = 1
 
-    if 'CLASS' in request.GET:
-        cname = request.GET['CLASS']
-        if cname:
-            flag = 0
-            queryset_subjects = queryset_class.filter(class_id__icontains=cname)
-    else:
-        pass
+    print(request.GET)
+    if 'SEM' and 'CLASS' in request.GET:
+        flag = 0
+        sem = request.GET.getlist('SEM', None)[0]
+        cname = request.GET.getlist('CLASS', None)[0]
+
+        queryset_subjects = queryset_subjects.filter(sem_id__exact=sem, class_id__class_name__icontains=cname)
+
+    # if 'CLASS' in request.GET:
+    #     cname = request.GET['CLASS']
+    #     if cname:
+    #         flag = 0
+    #         queryset_subjects = queryset_subjects.filter(class_id__icontains=cname)
+    #
+    #
+    #
+    # if 'SEM' in request.GET:
+    #     sem = request.GET['SEM']
+    #     if sem:
+    #         flag = 0
+    #         queryset_subjects = queryset_subjects.filter(sem_id__exact=sem)
+    #
 
 
-    if 'SEM' in request.GET:
-        sem = request.GET['SEM']
-        if sem:
-            flag = 0
-            queryset_subjects = queryset_subjects.filter(sem_id__exact=sem)
-    else:
-        pass
+
+
+
+
     context = {
         'subjects': queryset_subjects
 
@@ -55,5 +67,12 @@ def new_reval(request):
         return render(request, 'newreval/newreval.html', context)
 
 
-def new_reval_head(request):
-    return render(request, 'newreval/newrevalhead.html', )
+def result(request):
+    args = {}
+    if request.POST:
+
+        args['subjects'] = request.POST.getlist('vehicle', None)
+        print(args)
+
+    return render(request, 'newreval/result.html', args)
+
