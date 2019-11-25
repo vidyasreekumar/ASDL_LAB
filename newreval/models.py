@@ -12,6 +12,8 @@ class Class(models.Model):
 
     class Meta:
         ordering = ('class_id',)
+        verbose_name_plural = "Class"
+
 
     def __str__(self):
         return str(self.class_id)
@@ -25,15 +27,20 @@ class UserDetails(models.Model):
 
     class Meta:
         ordering = ('ktu_id',)
+        verbose_name_plural = "UserDetails"
+
 
     def __str__(self):
         return str(self.ktu_id)
+
 class Sem(models.Model):
     sem_id = models.IntegerField(primary_key= True)
     sem_name = models.CharField(max_length=20)
 
     class Meta:
         ordering = ('sem_id',)
+        verbose_name_plural = "Semesters"
+
 
     def __str__(self):
         return str(self.sem_id)
@@ -46,6 +53,8 @@ class Subjects(models.Model):
 
     class Meta:
         ordering = ('sub_id',)
+        verbose_name_plural = "Subjects"
+
 
     def __str__(self):
         return str(self.sub_id)
@@ -58,11 +67,11 @@ class Reval(models.Model):
     file = models.FileField(upload_to='media/')
     paid = models.BooleanField(default=False)
     fees = models.IntegerField()
-    sem_id = models.ForeignKey(Sem, on_delete=models.CASCADE)
-    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subjects, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ('ktu_id',)
+        verbose_name_plural = "NewRevaluation"
 
     def __str__(self):
         return str(self.ktu_id)
