@@ -75,3 +75,18 @@ class Reval(models.Model):
 
     def __str__(self):
         return str(self.ktu_id)
+
+class Reval2(models.Model):
+    date = models.DateField(default=datetime.now)
+    ktu_id = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    paid = models.BooleanField(default=False)
+    fees = models.IntegerField()
+    subject = models.ForeignKey(Subjects, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ('ktu_id',)
+        verbose_name_plural = "NewRevaluation"
+
+    def __str__(self):
+        return str(self.ktu_id)

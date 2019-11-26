@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Class,Sem,UserDetails,Subjects,Reval
+from .models import Class,Sem,UserDetails,Subjects,Reval,Reval2
 
 # Register your models here.
 class Class_admin(admin.ModelAdmin):
@@ -10,4 +10,5 @@ admin.site.register(Sem)
 admin.site.register(UserDetails)
 admin.site.register(Subjects)
 admin.site.register(Reval)
+admin.site.register(Reval2)
 

@@ -21,9 +21,22 @@
         <ul class="list-group list-group-flush">
 
        <h2>REGISTERED SUBJECTS : </h2>
+             <ul class="list-group list-group-flush">
+
+            <style>
+                        table
+                        { empty-cells: show;
+                        border-spacing: rem;
+                        white-space: pre-wrap;
+                        table-layout: auto;}
+
+            </style>
          {% for subject in subjects %}
-            {{subject}}<br/>
+                 <li>  {{subject}}                  200</li><br/>
+
          {% endfor %}
+           <li>{{i}}</li>
+
         </ul>
     </form>
 

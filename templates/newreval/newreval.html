@@ -45,9 +45,10 @@
 
             </style>
 
+
             <p>
                 {% for subject in subjects %}
-                <input type="checkbox" name="vehicle" value="{{subject.sub_name}}"> {{subject.sub_name}}
+                <input type="checkbox" name="vehicle" value="{{subject.sub_name}}"> {{subject.sub_name}}<br/>
                 {% endfor %}
             </p>
 
