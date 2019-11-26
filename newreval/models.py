@@ -90,3 +90,4 @@ class Reval2(models.Model):
 
     def __str__(self):
         return str(self.ktu_id)
+

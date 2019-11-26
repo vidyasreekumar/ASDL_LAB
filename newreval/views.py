@@ -86,8 +86,10 @@ def result(request):
         print(args['subjects'][0])
         for i in range(len(args['subjects'])):
             print(i)
+        args['total'] = (i+1)*200
         username = request.user.username
         print(username)
+        args['username'] = username
         intuser = User.objects.get(username='shwetha')
         sub=Subjects.objects.get(sub_name = args['subjects'][0])
         p=Reval2(ktu_id=intuser, fees = (i+1)*200, subject=sub)
