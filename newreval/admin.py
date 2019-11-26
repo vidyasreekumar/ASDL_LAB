@@ -9,6 +9,5 @@ admin.site.register(Class,Class_admin)
 admin.site.register(Sem)
 admin.site.register(UserDetails)
 admin.site.register(Subjects)
-admin.site.register(Reval)
 admin.site.register(Reval2)
 

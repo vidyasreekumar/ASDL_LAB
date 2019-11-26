@@ -13,37 +13,54 @@
 </section>
 
 
-
-
 <!-- Listing -->
 <section id="listing" class="py-4">
     <form action="/action_page.php" method="get">
         <ul class="list-group list-group-flush">
-          {{username}}
-       <h2>REGISTERED SUBJECTS : </h2>
-             <ul class="list-group list-group-flush">
 
             <style>
-                        table
-                        { empty-cells: show;
-                        border-spacing: rem;
-                        white-space: pre-wrap;
-                        table-layout: auto;}
+            .boxed {
+  border: 1px solid green ;
+  background-color : lightgrey;
+  width : 100%;
+  height : 300px;
+
+
+}
+
 
             </style>
-         {% for subject in subjects %}
-                 <li>  {{subject}}                  200</li><br/>
+            <p style="font-weight: bold;font-size: 20">{{username}}</p>
+            <p><span id="datetime"></span></p>
 
-         {% endfor %}
-           <li>{{total}}</li>
+            <script>
+            n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("datetime").innerHTML = m + "/" + d + "/" + y;
 
+            </script>
+            <div class="boxed">
+                <p style="font-weight: bold; font-size: 20">REGISTERED SUBJECTS : </p>
+
+                {% for subject in subjects %}
+                <li> {{subject}} : 200.00</li>
+                <br/>
+
+                {% endfor %}
+                <li>Total amount : {{total}}.00</li>
+
+
+                <div class="pay_box" style="position:absolute;top:700px;left:700px; width:330px; ">
+                    <button type="button" style="width:100px;"><a href="https://www.onlinesbi.com/">Pay</a>
+                    </button>
+                </div>
+            </div>
         </ul>
     </form>
 
 </section>
-
-<h2>PAY ONLINE</h2>
-<p><a href="https://www.w3schools.com/html/">HERE</a></p>
 {% endblock %}
 
 

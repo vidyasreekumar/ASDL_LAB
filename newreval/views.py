@@ -5,15 +5,13 @@ from django.contrib.auth.models import User
 
 
 def new_reval_head(request):
-
     queryset_class = Class.objects.all()
     queryset_sem = Sem.objects.all()
     queryset_subjects = Subjects.objects.all()
     queryset_userdetails = UserDetails.objects.all()
 
-
     if request.POST:
-        us=request.POST.get('username')
+        us = request.POST.get('username')
         queryset_userdetails = queryset_subjects.filter(ktu_id=us)
     context = {
         'class': queryset_class,
@@ -26,8 +24,6 @@ def new_reval_head(request):
 
 
 def new_reval(request):
-
-
     queryset_class = Class.objects.all()
     queryset_sem = Sem.objects.all()
     queryset_subjects = Subjects.objects.all()
@@ -58,11 +54,6 @@ def new_reval(request):
     #         queryset_subjects = queryset_subjects.filter(sem_id__exact=sem)
     #
 
-
-
-
-
-
     context = {
         'class': queryset_class,
         'sems': queryset_sem,
@@ -86,15 +77,12 @@ def result(request):
         print(args['subjects'][0])
         for i in range(len(args['subjects'])):
             print(i)
-        args['total'] = (i+1)*200
+        args['total'] = (i + 1) * 200
         username = request.user.username
         print(username)
         args['username'] = username
-        intuser = User.objects.get(username='shwetha')
-        sub=Subjects.objects.get(sub_name = args['subjects'][0])
-        p=Reval2(ktu_id=intuser, fees = (i+1)*200, subject=sub)
+        intuser = User.objects.get(username=username)
+        sub = Subjects.objects.get(sub_name=args['subjects'][0])
+        p = Reval2(ktu_id=intuser, fees=(i + 1) * 200, subject=sub)
         p.save()
-        a=Reval2.objects.all()
-        print(a)
     return render(request, 'newreval/result.html', args)
-
